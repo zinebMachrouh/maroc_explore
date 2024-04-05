@@ -4,6 +4,7 @@ import axios from "axios";
 
 const Route = ({ route,user, getData }) => {
     const token = sessionStorage.getItem('token');
+    const logged = sessionStorage.getItem('logged');
 
     const [showModal, setShowModal] = useState(false);
     const [added, setAdded] = useState(route.added)
@@ -46,11 +47,13 @@ const Route = ({ route,user, getData }) => {
                 </ul>
                 <div className="buttons">
                     <button type="button" class="action" onClick={openModal}>View Details</button>
-                    <button type="button" onClick={addToWatchlist} className="wishlist">
-                        {
-                            added ? <i class="fa-solid fa-star"></i> : <i class="fa-regular fa-star"></i>
-                        }
-                    </button>
+                    {
+                        logged ? <button type="button" onClick={addToWatchlist} className="wishlist">
+                            {
+                                added ? <i class="fa-solid fa-star"></i> : <i class="fa-regular fa-star"></i>
+                            }
+                        </button> : ''
+                    }
                 </div>
             </div>
             {showModal && <Modal route={route} closeModal={closeModal} user={user} getData={getData} />}

@@ -399,6 +399,7 @@ nav a{
   letter-spacing: 0.05em;
   color: var(--white);
   width: 80%;
+  flex-grow: 1;
 }
 .wishlist{
   background-color: transparent;
