@@ -14,6 +14,7 @@ const Welcome = () => {
         selectedOption: '',
         showModal : false
     })
+
     const logged = sessionStorage.getItem('logged');
     const token = sessionStorage.getItem('token');
 
